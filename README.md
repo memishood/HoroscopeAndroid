@@ -7,7 +7,7 @@ This library fetching horoscope without the need for a server in Android
 
 #### Best way to use with: Coroutines Flow
 ````kotlin
-yourScope.launch {
+yourScope.launch(Dispatchers.IO) {
             HoroscopeManager.getFlow(HoroscopeType.BASAK).collect { horoscope ->
                 Log.d(TAG, "${horoscope.name}")
                 Log.d(TAG, "${horoscope.motto}")
@@ -34,7 +34,7 @@ yourScope.launch {
 
 #### with Async/Await
 ````kotlin
-yourScope.launch {
+yourScope.launch(Dispatchers.IO) {
             val horoscope = HoroscopeManager.fetchAsync(HoroscopeType.BASAK, this /*yourScope*/).await()
             Log.d(TAG, "${horoscope.name}")
             Log.d(TAG, "${horoscope.motto}")
