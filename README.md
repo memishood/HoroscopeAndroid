@@ -40,7 +40,7 @@ HoroscopeManager.get(HoroscopeType.AKREP) { horoscope ->
 #### 2.Add this dependency in your app level `build.gradle`:
     dependencies {
         ...
-        implementation("com.github.memishood:com.emrememis.HoroscopeAndroid:1.1.0")
+        implementation("com.github.memishood:com.emrememis.HoroscopeAndroid:1.1.1")
     }
 
 ## 🤝 License

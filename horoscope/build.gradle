@@ -40,7 +40,7 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = "com.github.memishood:com.emrememis.HoroscopeAndroid"
+                groupId = "com.emrememis.android.horoscope"
                 artifactId = "horoscope"
                 version = "1.0.0"
             }
