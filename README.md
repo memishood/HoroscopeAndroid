@@ -4,7 +4,62 @@
 This library fetching horoscope without the need for a server in Android
 
 ### In your code:
-```kotlin
+
+#### Best way to use with: Coroutines Flow
+````kotlin
+yourScope.launch {
+            HoroscopeManager.getFlow(HoroscopeType.BASAK).collect { horoscope ->
+                Log.d(TAG, "${horoscope.name}")
+                Log.d(TAG, "${horoscope.motto}")
+                Log.d(TAG, "${horoscope.rulingPlanet}")
+                Log.d(TAG, "${horoscope.element}")
+                Log.d(TAG, "${horoscope.personalCharacteristics}")
+                Log.d(TAG, "${horoscope.group}")
+                Log.d(TAG, "${horoscope.colors}")
+                Log.d(TAG, "${horoscope.luckyStones}")
+                Log.d(TAG, "${horoscope.luckyNumbers}")
+                Log.d(TAG, "${horoscope.luckyDay}")
+                Log.d(TAG, "${horoscope.friendHoroscope}")
+                Log.d(TAG, "${horoscope.cities}")
+                Log.d(TAG, "${horoscope.metal}")
+                Log.d(TAG, "${horoscope.flowers}")
+                Log.d(TAG, "${horoscope.trees}")
+                Log.d(TAG, "${horoscope.dailyHoroscope}")
+                Log.d(TAG, "${horoscope.weeklyHoroscope}")
+                Log.d(TAG, "${horoscope.monthlyHoroscope}")
+                Log.d(TAG, "${horoscope.yearlyHoroscope}")
+            }
+        }
+````
+
+#### with Async/Await
+````kotlin
+yourScope.launch {
+            val horoscope = HoroscopeManager.fetchAsync(HoroscopeType.BASAK, this /*yourScope*/).await()
+            Log.d(TAG, "${horoscope.name}")
+            Log.d(TAG, "${horoscope.motto}")
+            Log.d(TAG, "${horoscope.rulingPlanet}")
+            Log.d(TAG, "${horoscope.element}")
+            Log.d(TAG, "${horoscope.personalCharacteristics}")
+            Log.d(TAG, "${horoscope.group}")
+            Log.d(TAG, "${horoscope.colors}")
+            Log.d(TAG, "${horoscope.luckyStones}")
+            Log.d(TAG, "${horoscope.luckyNumbers}")
+            Log.d(TAG, "${horoscope.luckyDay}")
+            Log.d(TAG, "${horoscope.friendHoroscope}")
+            Log.d(TAG, "${horoscope.cities}")
+            Log.d(TAG, "${horoscope.metal}")
+            Log.d(TAG, "${horoscope.flowers}")
+            Log.d(TAG, "${horoscope.trees}")
+            Log.d(TAG, "${horoscope.dailyHoroscope}")
+            Log.d(TAG, "${horoscope.weeklyHoroscope}")
+            Log.d(TAG, "${horoscope.monthlyHoroscope}")
+            Log.d(TAG, "${horoscope.yearlyHoroscope}")
+        }
+````
+
+#### with run blocking (not recommended)
+````kotlin
 HoroscopeManager.get(HoroscopeType.AKREP) { horoscope ->
     Log.d(TAG, "${horoscope.name}")
     Log.d(TAG, "${horoscope.motto}")
@@ -25,8 +80,8 @@ HoroscopeManager.get(HoroscopeType.AKREP) { horoscope ->
     Log.d(TAG, "${horoscope.weeklyHoroscope}")
     Log.d(TAG, "${horoscope.monthlyHoroscope}")
     Log.d(TAG, "${horoscope.yearlyHoroscope}")
- }
-```
+}
+````
 
 ### Setup:
 #### 1.Add this in your root `build.gradle` at the end of repositories:
@@ -45,7 +100,7 @@ HoroscopeManager.get(HoroscopeType.AKREP) { horoscope ->
 
 ## 🤝 License
 
-```
+````
 MIT License
 
 Copyright (c) 2021 memishood
@@ -67,4 +122,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-```
+````
