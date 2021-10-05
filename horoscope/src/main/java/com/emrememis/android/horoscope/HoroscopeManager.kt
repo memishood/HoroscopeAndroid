@@ -89,7 +89,7 @@ object HoroscopeManager {
         )?.trim()?.toStringArray
 
         val personalCharacteristics = body.substringCatch(
-            body.indexOf("KİŞİSEL ÖZELLİKLERİ:") + "KİŞİSEL ÖZELLİKLERİ".length,
+            body.indexOf("KİŞİSEL ÖZELLİKLERİ:") + "KİŞİSEL ÖZELLİKLERİ:".length,
             body.indexOf("FİZİKSEL ÖZELLİKLERİ:")
         )?.trim()
 
