@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             HoroscopeManager.getFlow(HoroscopeType.BASAK).collect { horoscope ->
                 Log.d(TAG, "${horoscope.name}")
+                Log.d(TAG, "${horoscope.birthdayRange}")
                 Log.d(TAG, "${horoscope.motto}")
                 Log.d(TAG, "${horoscope.rulingPlanet}")
                 Log.d(TAG, "${horoscope.element}")
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             val horoscope = HoroscopeManager.fetchAsync(HoroscopeType.BASAK, this).await()
             Log.d(TAG, "${horoscope.name}")
+            Log.d(TAG, "${horoscope.birthdayRange}")
             Log.d(TAG, "${horoscope.motto}")
             Log.d(TAG, "${horoscope.rulingPlanet}")
             Log.d(TAG, "${horoscope.element}")
@@ -73,6 +75,7 @@ class MainActivity : AppCompatActivity() {
          */
         HoroscopeManager.get(HoroscopeType.AKREP) { horoscope ->
             Log.d(TAG, "${horoscope.name}")
+            Log.d(TAG, "${horoscope.birthdayRange}")
             Log.d(TAG, "${horoscope.motto}")
             Log.d(TAG, "${horoscope.rulingPlanet}")
             Log.d(TAG, "${horoscope.element}")

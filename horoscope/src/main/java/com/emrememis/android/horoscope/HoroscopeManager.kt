@@ -33,6 +33,14 @@ object HoroscopeManager {
             body.indexOf("BURCU")
         )?.trim()?.lowercase()?.replaceFirstChar { it.uppercase() } ?: type.name
 
+        val birthdayRange = document.body().getElementsByClass("burclarB").first()
+            ?.child(0)
+            ?.child(0)
+            ?.child(0)
+            ?.child(1)
+            ?.child(0)
+            ?.ownText()
+
         val group = body.substringCatch(
             body.indexOf("Grup:") + "Grup:".length,
             body.indexOf("Yönetici Gezegen:")
@@ -104,7 +112,7 @@ object HoroscopeManager {
         )?.trim()
 
         val horoscope = Horoscope(
-            horoscopeName, motto, rulingPlanet, element, personalCharacteristics, group,
+            horoscopeName, birthdayRange, motto, rulingPlanet, element, personalCharacteristics, group,
             colors, luckyStones, luckyNumbers, luckyDay, friendHoroscope, cities, metal,
             flowers, trees, dailyHoroscope, weeklyHoroscope, monthlyHoroscope, yearlyHoroscope
         )
@@ -130,6 +138,14 @@ object HoroscopeManager {
             body.indexOf("BURCU")
         )?.trim()?.lowercase()?.replaceFirstChar { it.uppercase() } ?: type.name
 
+        val birthdayRange = document.body().getElementsByClass("burclarB").first()
+            ?.child(0)
+            ?.child(0)
+            ?.child(0)
+            ?.child(1)
+            ?.child(0)
+            ?.ownText()
+
         val group = body.substringCatch(
             body.indexOf("Grup:") + "Grup:".length,
             body.indexOf("Yönetici Gezegen:")
@@ -201,7 +217,7 @@ object HoroscopeManager {
         )?.trim()
 
         val horoscope = Horoscope(
-            horoscopeName, motto, rulingPlanet, element, personalCharacteristics, group,
+            horoscopeName, birthdayRange, motto, rulingPlanet, element, personalCharacteristics, group,
             colors, luckyStones, luckyNumbers, luckyDay, friendHoroscope, cities, metal,
             flowers, trees, dailyHoroscope, weeklyHoroscope, monthlyHoroscope, yearlyHoroscope
         )
@@ -223,6 +239,14 @@ object HoroscopeManager {
             body.indexOf("Burcu Genel Burç Yorumu") + "Burcu Genel Burç Yorumu".length,
             body.indexOf("BURCU")
         )?.trim()?.lowercase()?.replaceFirstChar { it.uppercase() } ?: type.name
+
+        val birthdayRange = document.body().getElementsByClass("burclarB").first()
+            ?.child(0)
+            ?.child(0)
+            ?.child(0)
+            ?.child(1)
+            ?.child(0)
+            ?.ownText()
 
         val group = body.substringCatch(
             body.indexOf("Grup:") + "Grup:".length,
@@ -295,7 +319,7 @@ object HoroscopeManager {
         )?.trim()
 
         Horoscope(
-            horoscopeName, motto, rulingPlanet, element, personalCharacteristics, group,
+            horoscopeName, birthdayRange, motto, rulingPlanet, element, personalCharacteristics, group,
             colors, luckyStones, luckyNumbers, luckyDay, friendHoroscope, cities, metal,
             flowers, trees, dailyHoroscope, weeklyHoroscope, monthlyHoroscope, yearlyHoroscope
         )

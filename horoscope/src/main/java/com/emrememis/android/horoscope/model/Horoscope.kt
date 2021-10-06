@@ -5,6 +5,7 @@ package com.emrememis.android.horoscope.model
  */
 data class Horoscope(
     val name: String?,
+    var birthdayRange: String?,
     val motto: String?,
     val rulingPlanet: String?,
     val element: String?,
