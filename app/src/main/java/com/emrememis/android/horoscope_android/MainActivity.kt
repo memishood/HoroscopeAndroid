@@ -3,12 +3,17 @@ package com.emrememis.android.horoscope_android
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
+import android.widget.TextView
 import com.emrememis.android.horoscope.HoroscopeManager
+import com.emrememis.android.horoscope.HoroscopeManager.horoscopeImage
+import com.emrememis.android.horoscope.HoroscopeManager.horoscopeName
 import com.emrememis.android.horoscope.util.HoroscopeType
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.util.*
 
 /**
  * @author emre.memis.49@gmail.com
@@ -17,6 +22,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        /**
+         * pick horoscope name and image from date
+         */
+        val birthday = Date()
+        val name = birthday.horoscopeName
+        val image = birthday.horoscopeImage
+        findViewById<TextView>(R.id.text_view).text = name
+        findViewById<ImageView>(R.id.image_view).setImageResource(image)
         /**
          * with flow {best way to use}
          */

@@ -5,6 +5,13 @@ This library fetching horoscope without the need for a server in Android
 
 ### In your code:
 
+#### To pick horoscope name and image from date:
+````kotlin
+val birthday = Date()
+val name = birthday.horoscopeName
+val image = birthday.horoscopeImage
+````
+
 #### Best way to use with: Coroutines Flow
 ````kotlin
 yourScope.launch(Dispatchers.IO) {
@@ -95,7 +102,7 @@ HoroscopeManager.get(HoroscopeType.AKREP) { horoscope ->
 #### 2.Add this dependency in your app level `build.gradle`:
     dependencies {
         ...
-        implementation("com.github.memishood:HoroscopeAndroid:1.2.5")
+        implementation("com.github.memishood:HoroscopeAndroid:1.2.7")
     }
 
 ## 🤝 License

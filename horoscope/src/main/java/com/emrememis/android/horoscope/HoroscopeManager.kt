@@ -6,6 +6,7 @@ import com.emrememis.android.horoscope.util.HoroscopeType
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.flow
 import org.jsoup.Jsoup
+import java.util.*
 
 /**
  * @author emre.memis.49@gmail.com
@@ -382,5 +383,82 @@ object HoroscopeManager {
             } catch (e: Exception) {
                 null
             }
+        }
+    /**
+     * get horoscope type from date
+     */
+    val Date.horoscopeName: String
+        get() {
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = time
+            val day = calendar[Calendar.DAY_OF_MONTH]
+            return when (calendar[Calendar.MONTH]) {
+                0 -> when {
+                    day < 20 -> "Oğlak"
+                    else -> "Kova"
+                }
+                1 -> when {
+                    day < 20 -> "Kova"
+                    else -> "Balık"
+                }
+                2 -> when {
+                    day < 20 -> "Balık"
+                    else -> "Koç"
+                }
+                3 -> when {
+                    day < 20 -> "Koç"
+                    else -> "Boğa"
+                }
+                4 -> when {
+                    day < 20 -> "Boğa"
+                    else -> "İkizler"
+                }
+                5 -> when {
+                    day < 20 -> "İkizler"
+                    else -> "Yengeç"
+                }
+                6 -> when {
+                    day < 20 -> "Yengeç"
+                    else -> "Aslan"
+                }
+                7 -> when {
+                    day < 20 -> "Aslan"
+                    else -> "Başak"
+                }
+                8 -> when {
+                    day < 20 -> "Başak"
+                    else -> "Terazi"
+                }
+                9 -> when {
+                    day < 20 -> "Terazi"
+                    else -> "Akrep"
+                }
+                10 -> when {
+                    day < 20 -> "Akrep"
+                    else -> "Yay"
+                }
+                else -> when {
+                    day < 20 -> "Yay"
+                    else -> "Oğlak"
+                }
+            }
+        }
+    /**
+     * generate horoscope image from date
+     */
+    val Date.horoscopeImage: Int
+        get() = when (horoscopeName) {
+            "Oğlak" -> R.drawable.capricorn_icon
+            "Kova" -> R.drawable.aquarius_icon
+            "Balık" -> R.drawable.pisces_icon
+            "Koç" -> R.drawable.aries_icon
+            "Boğa" -> R.drawable.taurus_icon
+            "İkizler" -> R.drawable.gemini_icon
+            "Yengeç" -> R.drawable.cancer_icon
+            "Aslan" -> R.drawable.leo_icon
+            "Başak" -> R.drawable.virgo_icon
+            "Terazi" -> R.drawable.libra_icon
+            "Akrep" -> R.drawable.scorpio_icon
+            else -> R.drawable.sagittarius_icon
         }
 }
